@@ -1,0 +1,2 @@
+docker build -t ingestor .
+docker run -dit --name ingestor -p 5000:5000 --restart always --network mongodb_default ingestor

@@ -12,7 +12,7 @@ my_usd = c.convert('USD', 'PLN', 800)
 btc_price_pln = b.get_latest_price('PLN')
 #print(str(ts)+","+str(usd_price)+","+str(my_usd)+","+str(btc_price_pln))
 
-myclient = pymongo.MongoClient("mongodb://mongodb:27017/")
+myclient = pymongo.MongoClient("mongodb://mongodb:27017/", username='user', password='password')
 mydb = myclient["forex"]
 mycol = mydb["forex"]
 

@@ -1,8 +1,5 @@
 FROM ubuntu:latest
 
-WORKDIR /app
-COPY ./main.py /app
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
@@ -10,7 +7,17 @@ RUN apt-get update \
   && cd /usr/local/bin \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip \
-  && pip3 install forex_python pymongo \
-  && crontab -l > mycron \
-  && echo "0 * * * * python3 /app/main.py" > mycron \
-  && crontab mycron && rm mycron
+  && pip3 install forex_python pymongo
+
+WORKDIR /app
+COPY ./main.py /app
+COPY ./hello-cron /etc/cron.d/hello-cron
+
+RUN chmod 0644 /etc/cron.d/hello-cron
+
+RUN crontab /etc/cron.d/hello-cron
+
+RUN touch /var/log/cron.log
+
+CMD cron && tail -f /var/log/cron.log
+
