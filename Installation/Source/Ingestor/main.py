@@ -6,7 +6,7 @@ import pymongo
 c = CurrencyRates()
 
 ts = datetime.datetime.now().timestamp()
-today = datetime.datetime.now() - datetime.timedelta(hours=2, minutes=0)
+today = datetime.datetime.now() - datetime.timedelta(hours=1, minutes=0)
 today_formatted = today.strftime('%Y%m%d')
 
 usd_price = c.get_rates('USD')['PLN']
