@@ -1,0 +1,2 @@
+docker build -t publisher .
+docker run -dit --name publisher -p 5050:5050 --restart always --network mongodb_default publisher
