@@ -12,7 +12,7 @@ x = col.find({},{'_id': 0, 'timestamp': 1, 'usd_price': 1, 'my_usd': 1, 'btc_pri
 #for row in x:
 #    print(row)
 
-with open('./forex.json', 'w') as file:
+with open('/app/forex.json', 'w') as file:
     file.write('[')
     for document in x:
         file.write(dumps(document))
