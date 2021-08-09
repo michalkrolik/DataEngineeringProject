@@ -21,5 +21,3 @@ RUN crontab /etc/cron.d/hello-cron
 RUN touch /var/log/cron.log
 
 CMD cron && tail -f /var/log/cron.log
-
-ENV AZURE_STORAGE_CONNECTION_STRING "string"

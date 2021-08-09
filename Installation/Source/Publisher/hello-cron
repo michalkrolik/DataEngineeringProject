@@ -1,2 +1,2 @@
-1 * * * * python3 /app/main.py >> /var/log/cron.log
-3 * * * * python3 /app/exporter.py >> /var/log/cron.log
+1 * * * * python3 /app/main.py
+3 * * * * python3 /app/exporter.py

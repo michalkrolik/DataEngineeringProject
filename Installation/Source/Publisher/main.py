@@ -18,3 +18,4 @@ with open('/app/forex.json', 'w') as file:
         file.write(dumps(document))
         file.write(',')
     file.write(']')
+
