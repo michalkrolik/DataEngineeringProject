@@ -6,7 +6,8 @@ os.environ['AZURE_STORAGE_CONNECTION_STRING'] = "string"
 connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-container_name = str(uuid.uuid4())
+#container_name = str(uuid.uuid4())
+container_name = str(datetime.datetime.today().strftime('%Y%m%d'))
 container_client = blob_service_client.create_container(container_name)
 
 local_path = "/app/"
