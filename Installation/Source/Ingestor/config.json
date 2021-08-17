@@ -1,0 +1,8 @@
+{
+    "secrets": {
+        "mongo_username" : "<usr/pswd>",
+        "mongo_password" : "<usr/pswd>",
+        "mongo_database" : "<db>",
+        "mongo_collection" : "<col>"
+    }
+}

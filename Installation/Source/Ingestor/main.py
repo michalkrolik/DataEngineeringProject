@@ -2,6 +2,15 @@ from forex_python.converter import CurrencyRates
 import pandas_datareader as web
 import datetime
 import pymongo
+import json
+
+CONFIG_LOCATION='./'
+CONFIG = json.loads(open(str(CONFIG_LOCATION+'config.json')).read())
+
+mongo_username    = CONFIG['secrets']['mongo_username']
+mongo_password    = CONFIG['secrets']['mongo_password']
+mongo_database    = CONFIG['secrets']['mongo_database']
+mongo_collection    = CONFIG['secrets']['mongo_collection']
 
 c = CurrencyRates()
 
@@ -22,9 +31,9 @@ btc_price_pln = btc.Close[0]*usd_price
 eth_price_pln = eth.Close[0]*usd_price
 xrp_price_pln = xrp.Close[0]*usd_price
 
-myclient = pymongo.MongoClient("mongodb://mongodb:27017/", username='ingestor', password='ingestor')
-mydb = myclient["forex"]
-mycol = mydb["forex"]
+myclient = pymongo.MongoClient("mongodb://mongodb:27017/", username=mongo_username, password=mongo_password)
+mydb = myclient[mongo_database]
+mycol = mydb[mongo_collection]
 
 mydict = { "timestamp": str(ts), "usd_price": str(usd_price), "my_usd": str(my_usd), "btc_price_pln": str(btc_price_pln), "eth_price_pln": str(eth_price_pln), "xrp_price_pln": str(xrp_price_pln) }
 
