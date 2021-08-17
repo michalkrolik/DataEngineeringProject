@@ -1,7 +1,13 @@
 import pymongo
+import json
 from bson.json_util import dumps
 
-client = pymongo.MongoClient("mongodb://mongodb:27017/", username='ingestor', password='ingestor')
+CONFIG_LOCATION='./'
+CONFIG = json.loads(open(str(CONFIG_LOCATION+'config.json')).read())
+mongo_username    = CONFIG['secrets']['mongo_username']
+mongo_password    = CONFIG['secrets']['mongo_password']
+
+client = pymongo.MongoClient("mongodb://mongodb:27017/", username=mongo_username, password=mongo_password)
 
 db = client["forex"]
 col = db["forex"]

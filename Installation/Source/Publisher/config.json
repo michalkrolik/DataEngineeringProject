@@ -1,0 +1,7 @@
+{
+    "secrets": {
+        "AZURE_STORAGE_CONNECTION_STRING" : "<connection_string>",
+        "mongo_username" : "<usr/pswd>",
+        "mongo_password" : "<usr/pswd>"
+    }
+}

@@ -1,7 +1,12 @@
 import os, uuid
+import json
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 
-os.environ['AZURE_STORAGE_CONNECTION_STRING'] = "string"
+CONFIG_LOCATION='./'
+CONFIG = json.loads(open(str(CONFIG_LOCATION+'config.json')).read())
+AZURE_STORAGE_CONNECTION_STRING    = CONFIG['secrets']['AZURE_STORAGE_CONNECTION_STRING']
+
+os.environ['AZURE_STORAGE_CONNECTION_STRING'] = AZURE_STORAGE_CONNECTION_STRING
 
 connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 
