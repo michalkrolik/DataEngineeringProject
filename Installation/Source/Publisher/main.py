@@ -13,7 +13,7 @@ db = client["forex"]
 col = db["forex"]
 
 #x = col.find()
-x = col.find({},{'_id': 0, 'timestamp': 1, 'usd_price': 1, 'my_usd': 1, 'btc_price_pln': 1, 'eth_price_pln': 1, 'xrp_price_pln': 1})
+x = col.find({},{'_id': 0, 'timestamp': 1, 'usd_price': 1, 'my_usd': 1, 'btc_price': 1, 'btc_price_pln': 1, 'eth_price': 1, 'eth_price_pln': 1, 'xrp_price': 1, 'xrp_price_pln': 1, 'hbar_price': 1, 'hbar_price_pln': 1})
 
 #for row in x:
 #    print(row)

@@ -24,18 +24,29 @@ gbp_price = c.get_rates('GBP')['PLN']
 chf_price = c.get_rates('CHF')['PLN']
 my_usd = c.convert('USD', 'PLN', 800)
 
-btc = web.DataReader('BTC-USD', 'yahoo', today_formatted)
+bbtc = web.DataReader('BTC-USD', 'yahoo', today_formatted)
 eth = web.DataReader('ETH-USD', 'yahoo', today_formatted)
 xrp = web.DataReader('XRP-USD', 'yahoo', today_formatted)
+hbar = web.DataReader('HBAR-USD', 'yahoo', today_formatted)
+
+btc_price = btc.Close[0]
 btc_price_pln = btc.Close[0]*usd_price
+
+eth_price = eth.Close[0]
 eth_price_pln = eth.Close[0]*usd_price
+
+xrp_price = xrp.Close[0]
 xrp_price_pln = xrp.Close[0]*usd_price
 
-myclient = pymongo.MongoClient("mongodb://mongodb:27017/", username=mongo_username, password=mongo_password)
-mydb = myclient[mongo_database]
-mycol = mydb[mongo_collection]
+hbar_price = hbar.Close[0]
+hbar_price_pln = hbar.Close[0]*usd_price
 
-mydict = { "timestamp": str(ts), "usd_price": str(usd_price), "my_usd": str(my_usd), "btc_price_pln": str(btc_price_pln), "eth_price_pln": str(eth_price_pln), "xrp_price_pln": str(xrp_price_pln) }
+myclient = pymongo.MongoClient("mongodb://mongodb:27017/", username='mongo_username', password='mongo_password')
+mydb = myclient["forex"]
+mycol = mydb["forex"]
+
+mydict = { "timestamp": str(ts), "usd_price": str(usd_price), "my_usd": str(my_usd), "btc_price": str(btc_price), "btc_price_pln": str(btc_price_pln), "eth_price": str(eth_price), "eth_price_pln": str(eth_price_pln), "xrp_price": str(xrp_price), "xrp_price_pln": str(xrp_price_pln), "hbar_price": str(hbar_price), "hbar_price_pln": str(hbar_price_pln) }
+
 
 print(mydict)
 x = mycol.insert_one(mydict)
