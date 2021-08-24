@@ -23,5 +23,9 @@ with open('/app/forex.json', 'w') as file:
     for document in x:
         file.write(dumps(document))
         file.write(',')
-    file.write(']')
+    file.seek(0, 2)
+    file.seek(file.tell() - 2, 0)
+    file.truncate()
+    file.write('}]')
+
 
