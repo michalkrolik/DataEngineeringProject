@@ -18,10 +18,21 @@ container_client = blob_service_client.create_container(container_name)
 local_path = "/app/"
 local_file_name = "forex.json"
 upload_file_path = os.path.join(local_path, local_file_name)
-
 blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
-print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
 
+print("\nforex.json file uploading\n")
 with open(upload_file_path, "rb") as data:
     blob_client.upload_blob(data)
+    print("\nforex.json, upload completed\n")
+
+for files in ["Lewandowski.json", "Messi.json", "Mbappe.json", "Ronaldo.json"]:
+    local_path = "/app/football/"
+    local_file_name = files
+    upload_file_path = os.path.join(local_path, local_file_name)
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
+    print("\n"+files+" file uploading\n")
+
+    with open(upload_file_path, "rb") as data:
+        blob_client.upload_blob(data)
+        print("\n"+files+", upload completed\n")
 
