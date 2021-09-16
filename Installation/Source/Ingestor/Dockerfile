@@ -11,6 +11,7 @@ RUN apt-get update \
 
 WORKDIR /app
 COPY ./main.py /app
+COPY ./football.py /app
 COPY ./hello-cron /etc/cron.d/hello-cron
 
 RUN chmod 0644 /etc/cron.d/hello-cron

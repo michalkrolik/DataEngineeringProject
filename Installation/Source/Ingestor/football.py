@@ -5,9 +5,14 @@ file_path = '/app/footballers.json'
 
 conn = http.client.HTTPSConnection("v3.football.api-sports.io")
 
+CONFIG_LOCATION='./'
+CONFIG = json.loads(open(str(CONFIG_LOCATION+'config.json')).read())
+
+api_key    = CONFIG['secrets']['api_key']
+
 headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-rapidapi-key': "<the_Key>"
+    'x-rapidapi-key': api_key
     }
 
 players_id = [154, 278, 521, 874]
