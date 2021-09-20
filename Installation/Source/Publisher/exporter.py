@@ -25,7 +25,7 @@ with open(upload_file_path, "rb") as data:
     blob_client.upload_blob(data)
     print("\nforex.json, upload completed\n")
 
-for files in ["Lewandowski.json", "Messi.json", "Mbappe.json", "Ronaldo.json"]:
+for files in ["Lewandowski.json", "Messi.json", "Mbappe.json", "Ronaldo.json", "Haaland.json"]:
     local_path = "/app/football/"
     local_file_name = files
     upload_file_path = os.path.join(local_path, local_file_name)

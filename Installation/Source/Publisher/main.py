@@ -28,7 +28,7 @@ with open('/app/forex.json', 'w') as file:
     file.truncate()
     file.write('}]')
 
-for players in ["Lewandowski","Mbappé","Messi","Ronaldo"]:
+for players in ["Lewandowski","Mbappé","Messi","Ronaldo","Haaland"]:
 
         db = client[players]
         col = db[players]

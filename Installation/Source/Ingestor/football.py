@@ -15,7 +15,7 @@ headers = {
     'x-rapidapi-key': api_key
     }
 
-players_id = [154, 278, 521, 874]
+players_id = [154, 278, 521, 874, 1100]
 players = {}
 
 for player_id in players_id:
@@ -60,7 +60,7 @@ f_cards_red = {}
 f_penalty_scored = {}
 f_penalty_missed = {}
 
-for x in range(0, 4):
+for x in range(0, 5):
     for player in jsonObject['data'][x]:
         name = jsonObject['data'][x]['response'][0]['player']['name']
         photo = jsonObject['data'][x]['response'][0]['player']['photo']
