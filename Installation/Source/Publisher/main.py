@@ -1,6 +1,7 @@
 import pymongo
 import json
 from bson.json_util import dumps
+from pathlib import Path
 
 CONFIG_LOCATION='./'
 CONFIG = json.loads(open(str(CONFIG_LOCATION+'config.json')).read())

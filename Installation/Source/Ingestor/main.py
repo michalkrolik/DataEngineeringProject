@@ -42,8 +42,8 @@ hbar_price = hbar.Close[0]
 hbar_price_pln = hbar.Close[0]*usd_price
 
 myclient = pymongo.MongoClient("mongodb://mongodb:27017/", username='mongo_username', password='mongo_password')
-mydb = myclient["forex"]
-mycol = mydb["forex"]
+mydb = myclient[mongo_database]
+mycol = mydb[mongo_collection]
 
 mydict = { "timestamp": str(ts), "usd_price": str(usd_price), "my_usd": str(my_usd), "btc_price": str(btc_price), "btc_price_pln": str(btc_price_pln), "eth_price": str(eth_price), "eth_price_pln": str(eth_price_pln), "xrp_price": str(xrp_price), "xrp_price_pln": str(xrp_price_pln), "hbar_price": str(hbar_price), "hbar_price_pln": str(hbar_price_pln) }
 
