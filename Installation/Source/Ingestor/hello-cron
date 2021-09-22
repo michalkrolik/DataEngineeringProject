@@ -1,2 +1,1 @@
-0 * * * * python3 /app/main.py >> /var/log/cron.log
-0 * * * * python3 /app/football.py >> /var/log/cron.log
+0 * * * * cd /app/ && ./starter.sh
