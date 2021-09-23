@@ -18,6 +18,9 @@ COPY ./hello-cron /etc/cron.d/hello-cron
 RUN chmod 0644 /etc/cron.d/hello-cron
 
 RUN crontab /etc/cron.d/hello-cron
+RUN chmod u+x /app/starter.sh
+RUN chmod u+x /app/main.py
+RUN chmod u+x /app/football.py
 
 RUN touch /var/log/cron.log
 

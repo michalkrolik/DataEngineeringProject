@@ -1,2 +1,1 @@
-50 2 * * * python3 /app/main.py
-0 3 * * * python3 /app/exporter.py
+0 3 * * * cd /app/ && ./starter.sh
